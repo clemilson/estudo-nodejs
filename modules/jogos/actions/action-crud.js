@@ -17,6 +17,8 @@ action.cadastrar = (Model, body) => {
     return model.save();
 }
 
+action.create = (Model, body) => Model.create(body)
+
 action.atualizar = (Model, mod, id) => {
     const query = { _id: id };
     return Model.update(query, body);

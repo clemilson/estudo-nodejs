@@ -1,20 +1,13 @@
-'use strict';
+const cadastrar = require('./../actions/action-crud').cadastrar
 
-const cadastrar = require('./../actions/action-crud').cadastrar;
+const controller = (Model) => (req, res) => {
+    
+    const body = req.body
 
-const controller = (Model) => {
-    return (req, res) => {
-        
-        const body = req.body;
-        
-        cadastrar(Model, body)
-            .then(data => {
-                res.json(data);
-            })
-            .catch((err) => {
-                res.send('Erro: ', err);
-            })
-    }
+    cadastrar(Model, body)
+        .then(data => res.json(data))
+        .catch((err) => res.send('Erro: ', err))
+
 }
 
-module.exports = controller;
+module.exports = controller

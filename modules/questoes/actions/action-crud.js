@@ -7,6 +7,8 @@ action.cadastrar = (Model, body) => {
     return model.save();
 }
 
+action.create = (Model, body) => Model.create(body)
+
 action.find = (Model) => {
     const query = {};
     return Model.find(query).populate("topicos.questoes");

@@ -7,6 +7,7 @@ const   mongoose        = require('mongoose'),
 const   obterTodos  = require('./controller-obterTodos')(Model),
         obterPorId  = require('./controller-obterPorId')(Model),
         cadastrar   = require('./controller-cadastrar')(Model),
+        create   = require('./controller-create')(Model),
         atualizar   = require('./controller-atualizar')(Model),
         excluir     = require('./controller-excluir')(Model);
 
@@ -15,7 +16,8 @@ const features = {
     obterPorId,
     cadastrar,
     atualizar,
-    excluir    
+    excluir,
+    create 
 };
 
 module.exports = features;

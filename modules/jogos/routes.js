@@ -12,7 +12,7 @@ const   router        = require('express').Router(),
 
 router.get('/',  Controller.obterTodos);
 router.get('/:id', Controller.obterPorId);
-router.post('/', Controller.cadastrar);
+router.post('/', Controller.create);
 router.put('/:id', Controller.atualizar);
 router.delete('/:id', Controller.excluir);
 
