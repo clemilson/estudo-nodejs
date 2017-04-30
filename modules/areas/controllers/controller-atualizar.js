@@ -7,7 +7,7 @@ const controller = (Model) => {
         const id = req.params.id
         
         atualizar(Model, mod, id)
-            .then(result => res.json(result))
+            .then(data => res.json(data))
             .catch(err => res.send('Erro: ', err))
     }
 }

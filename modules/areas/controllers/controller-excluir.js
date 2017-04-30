@@ -5,7 +5,7 @@ const controller = (Model) => (req, res) => {
     const id = req.params.id
 
     excluir(Model, id)
-        .then(result => res.json(result))
+        .then(data => res.json(data))
         .catch(err => res.send('Erro: ', err))
 
 }

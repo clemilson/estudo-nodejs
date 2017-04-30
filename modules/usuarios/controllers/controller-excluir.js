@@ -1,20 +1,13 @@
-'use strict';
+const excluir = require('./../actions/action-crud').excluir
 
-const excluir = require('./../actions/action-crud').excluir;
+const controller = (Model) => (req, res) => {
 
-const controller = (Model) => {
-    return (req, res) => {
-        
-        const id = req.params.id;
-        
-        excluir(Model, id)
-            .then(result => {
-                res.json(result);
-            })
-            .catch((err) => {
-                res.send('Erro: ', err);
-            })
-    }
+    const id = req.params.id
+
+    excluir(Model, id)
+        .then(result => res.json(result))
+        .catch((err) => res.send('Erro: ', err))
+
 }
 
-module.exports = controller;
+module.exports = controller
