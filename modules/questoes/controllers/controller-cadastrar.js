@@ -1,11 +1,10 @@
-const atualizar = require('./../actions/action-crud').atualizar
+const cadastrar = require('./../actions/action-crud').cadastrar
 
 const controller = (Model) => (req, res) => {
 
-    const mod = req.body,
-        id = req.params.id
+    const body = req.body
 
-    atualizar(Model, mod, id)
+    cadastrar(Model, body)
         .then(data => res.json(data))
         .catch(err => res.send('Erro: ', err))
 }

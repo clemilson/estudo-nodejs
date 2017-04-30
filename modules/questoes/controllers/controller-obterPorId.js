@@ -1,11 +1,10 @@
-const atualizar = require('./../actions/action-crud').atualizar
+const obterPorId = require('./../actions/action-crud').obterPorId
 
 const controller = (Model) => (req, res) => {
 
-    const mod = req.body,
-        id = req.params.id
+    const id = req.params.id
 
-    atualizar(Model, mod, id)
+    obterPorId(Model, id)
         .then(data => res.json(data))
         .catch(err => res.send('Erro: ', err))
 }

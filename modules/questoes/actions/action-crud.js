@@ -1,22 +1,20 @@
-'use strict';
+const action = {}
 
-const action = {};
+action.obterTodos = (Model) =>
+    Model.find({}).populate("topicos.questoes")
 
-action.cadastrar = (Model, body) => {
-    const model = new Model(body);
-    return model.save();
+action.obterPorId = (Model, id) =>
+    Model.findOne({ _id: id }).populate("topicos.questoes")
+
+action.cadastrar = (Model, body) =>
+    Model.create(body)
+
+action.atualizar = (Model, mod, id) =>
+    Model.findOneAndUpdate({ _id: id }, mod, { new: true })
+
+action.excluir = (Model, id) => {
+    const mod   = { exclusao_logica : true }
+    Model.findOneAndUpdate({ _id: id }, mod, { new: true })
 }
 
-action.create = (Model, body) => Model.create(body)
-
-action.find = (Model) => {
-    const query = {};
-    return Model.find(query).populate("topicos.questoes");
-};
-
-action.findOne = (Model,questaoId) => {
-    const query = { _id: gameId};
-    return Model.findOne(query).populate("topicos.questoes");
-};
-
-module.exports = action;
+module.exports = action

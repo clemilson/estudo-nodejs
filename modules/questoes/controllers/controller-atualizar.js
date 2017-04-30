@@ -1,7 +1,6 @@
 const atualizar = require('./../actions/action-crud').atualizar
 
 const controller = (Model) => (req, res) => {
-
     const mod = req.body,
         id = req.params.id
 

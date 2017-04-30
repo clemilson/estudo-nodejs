@@ -1,24 +1,20 @@
-'use strict';
-
-const mongoose  = require('mongoose');
-const Schema    = require('./../schemas/schema-questao');
-const Model     = mongoose.model('questoes', Schema);
+const Model = require('./../model')
 
 //features
-const find         = require('./controller-find')(Model);
-const findOne      = require('./../actions/action-findOne')(Model);
-const create       = require('./controller-create')(Model);
-const update       = require('./../actions/action-update')(Model);
-const remove       = require('./../actions/action-remove')(Model);
-const cadastrarPromise = require('./controller-cadastrarPromise')(Model);
+const obterTodos = require('./controller-obterTodos')(Model),
+    obterPorId = require('./controller-obterPorId')(Model),
+    cadastrar = require('./controller-cadastrar')(Model),
+    atualizar = require('./controller-atualizar')(Model),
+    excluir = require('./controller-excluir')(Model),
+    cadastrarPromise = require('./controller-cadastrarPromise')(Model)
 
 const features = {
-    find,
-    findOne,
-    create,    
-    update,
-    remove,
+    obterTodos,
+    obterPorId,
+    cadastrar,
+    atualizar,
+    excluir,
     cadastrarPromise
-};
+}
 
-module.exports = features;
+module.exports = features

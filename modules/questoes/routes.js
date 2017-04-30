@@ -1,19 +1,17 @@
-'use strict';
+const router = require('express').Router(),
+    auth = require('./../../_config/authentication/'),
+    Controller = require('./controllers')
 
-const router        = require('express').Router();
-const auth          = require('./../../_config/authentication/')
-const Controller    = require('./controllers');
+//router.get('/', auth.authorize, Model.obterTodos)
+//router.get('/:id', auth.authorize, Model.obterPorId)
+//router.post('/', auth.authorize, Model.cadastrar)
+//router.put('/:id', auth.authorize, Model.atualizar)
+//router.delete('/:id', auth.authorize, Model.excluir)
 
-//router.get('/', auth.authorize, Model.find);
-//router.get('/:id', auth.authorize, Model.findOne);
-//router.post('/', auth.authorize, Model.create);
-//router.put('/:id', auth.authorize, Model.update);
-//router.delete('/:id', auth.authorize, Model.remove);
+router.get('/', Controller.obterTodos)
+router.get('/:id', Controller.obterPorId)
+router.post('/', Controller.cadastrar)
+router.put('/:id', Controller.atualizar)
+router.delete('/:id', Controller.excluir)
 
-router.get('/',  Controller.find);
-router.get('/:id', Controller.findOne);
-router.post('/', Controller.create);
-router.put('/:id', Controller.update);
-router.delete('/:id', Controller.remove);
-
-module.exports = router;
+module.exports = router
