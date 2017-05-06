@@ -1,14 +1,16 @@
-'use strict';
+const fs = require( 'fs' )
+const path = require( 'path' )
 
-const fs            = require('fs');
-const path          = require('path');
-const MODULES_PATH  = './modules/';
+const isDirectory = ( modulePath, folder ) =>
+    fs.statSync( path.join( modulePath, folder )).isDirectory()
 
-const getModules = (strPath) => {
-    return fs.readdirSync(strPath).filter(function(file) {
-        const isDirectory = fs.statSync(path.join(strPath, file)).isDirectory();
-        return isDirectory && (file !== '_common');
-    });
-};
+const isNotCommon = ( folder ) => ( folder !== '_common' )
 
-module.exports = getModules(MODULES_PATH);
+const isValidRoute = ( modulePath ) => ( route ) =>
+    isDirectory( modulePath, route ) && isNotCommon( route )
+
+const getModulesFrom = ( modulePath ) =>
+    fs.readdirSync( modulePath )
+        .filter( isValidRoute( modulePath ) )
+
+module.exports = getModulesFrom( './modules/' )

@@ -1,11 +1,11 @@
-const router = require('express').Router(),
-    auth = require('./../../_config/authentication/'),
-    Controller = require('./controllers')
+const router = require( 'express' ).Router()
+const auth = require( './../../_config/authentication/' )
+const Controller = require( './controllers' )
 
-router.get('/', auth.authorize, Controller.obterTodos)
-router.get('/:id', auth.authorize, Controller.obterPorId)
-router.post('/', auth.authorize, Controller.cadastrar)
-router.put('/:id', auth.authorize, Controller.atualizar)
-router.delete('/:id', auth.authorize, Controller.excluir)
+router.get( '/', auth.authorize, Controller.getAll )
+router.get( '/:id', auth.authorize, Controller.getById )
+router.post( '/', auth.authorize, Controller.create )
+router.put( '/:id', auth.authorize, Controller.update )
+router.delete( '/:id', auth.authorize, Controller.remove )
 
 module.exports = router

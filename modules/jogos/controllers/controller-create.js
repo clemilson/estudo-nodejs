@@ -31,6 +31,8 @@ const logError = (err) => console.log('erro: ', err)
 
 const cbQuestoes = async (arr, i) => {
 
+    const ids = []
+
     //const promises = arr.map(async (obj) => {
     const questoesInseridas = arr.map(async (obj) => {
 
@@ -39,14 +41,21 @@ const cbQuestoes = async (arr, i) => {
         //     .catch(logError)
 
         const questao = await obj
-        console.log('questao', questao)
+        //console.log('questao', questao)
         
-        questoesIds.push(questao._id)
+        //questoesIds.push(questao._id)
         
-        return questoesIds        
+        //return questoesIds        
+
+        ids.push(questao._id)
+
+        return questao._id
     })
 
-    console.log('questoesInseridas', await questoesInseridas)
+    //const teste = await questoesInseridas[0]
+    //console.log('teste', teste)
+
+    console.log('ids', ids)
 
     return questoesInseridas
 }
