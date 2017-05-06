@@ -1,4 +1,4 @@
-const cadastrar = require('./../actions/action-crud').create
+const cadastrar = require('./../actions/action-crud').cadastrar
 
 const controller = (Model) =>
   (questao) =>

@@ -1,49 +1,14 @@
-const mongoose = require('mongoose'),
-  Schema = mongoose.Schema,
-  _timeStamp = require('./../_common/fields/timeStamp')
+const mongoose = require('mongoose')
+const Schema = mongoose.Schema
+const _timeStamp = require('./../_common/fields/timeStamp')
 
 const _schema = {
-  nome: {
-    type: String,
-    validate: require('./../_common/attributes/isString-lengthGTE3'),
-    required: true,
-    index: false
-  },
-  email: {
-    type: String,
-    get: require('./../_common/attributes/toLower'),
-    set: require('./../_common/attributes/toLower'),
-    validate: require('./../_common/attributes/isEMAIL'),
-    required: true,
-    index: false
-  },
-  sobre: {
-    type: String,
-    validate: require('./../_common/attributes/isDescription'),
-    required: false,
-    index: false
-  },
-  imagem_avatar: {
-    type: String,
-    required: false,
-    index: false
-  },
+  nome: require('./../_common/fields/nome'),
+  sobre: require('./../_common/fields/sobre'),
+  email: require('./../_common/fields/email'),
+  imagem_avatar: require('./../_common/fields/imagem_avatar'),
   credenciais: {
-    local: {
-      usuario: {
-        type: String,
-        set: require('./../_common/attributes/toLower'),
-        validate: require('./../_common/attributes/isString-lengthGTE3'),
-        required: false,
-        index: false
-      },
-      senha: {
-        type: String,
-        validate: require('./../_common/attributes/isPassword'),
-        required: false,
-        index: false
-      }
-    }
+    local: require('./../_common/fields/credenciais_local')
   }
 }
 

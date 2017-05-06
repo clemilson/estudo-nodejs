@@ -18,6 +18,11 @@ const _schema = {
         default: 0,
         required: false
     },
+    exclusao_logica: {
+        type: Number,
+        default: 0,
+        required: false
+    },
     alternativa: [
         {
             texto: {

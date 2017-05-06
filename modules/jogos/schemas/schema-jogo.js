@@ -73,7 +73,7 @@ const _schema = {
             required: false
         },
         questoes: [
-           { type: Schema.Types.ObjectId, ref: 'questoes' }
+           { type: Schema.Types.ObjectId, ref: 'Questao' }
         ]
     }            
   ],

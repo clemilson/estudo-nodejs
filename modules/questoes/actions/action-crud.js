@@ -14,7 +14,7 @@ action.atualizar = (Model, mod, id) =>
 
 action.excluir = (Model, id) => {
     const mod   = { exclusao_logica : true }
-    Model.findOneAndUpdate({ _id: id }, mod, { new: true })
+    return Model.findOneAndUpdate({ _id: id }, mod, { new: true })
 }
 
 module.exports = action
