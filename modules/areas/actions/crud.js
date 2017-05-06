@@ -12,7 +12,7 @@ action.create = ( Model, body ) =>
 action.update = ( Model, mod, id ) =>
     Model.findOneAndUpdate( { _id: id }, mod, { new: true } )
 
-action.delete = ( Model, id ) =>
+action.remove = ( Model, id ) =>
     Model.findOneAndRemove( { _id: id } )
 
 module.exports = action
